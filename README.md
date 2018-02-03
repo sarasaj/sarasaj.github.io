@@ -18,4 +18,4 @@ Optimizations made in pizza project:
 6. minmize the number of flying pizzas genrated.
 7. debouncing the scroll event useing requestAnimationFrame 
 8. storing elemnts and arrays or global varibales that are accessed many times. 
-9. denested functions inside resize pizzas
+9. denested functions inside resizePizzas and removed determine dx 
