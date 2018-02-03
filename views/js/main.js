@@ -507,29 +507,29 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
-var latestKnownScrollY = 0;
-// 	ticking = false;
+// window.addEventListener('scroll', updatePositions);
+var latestKnownScrollY = 0,
+	ticking = false;
 
-// function update() {
-// 	updatePositions();
-// 	ticking = false;
-// 	var currentScrollY = latestKnownScrollY;
+function update() {
+	updatePositions();
+	ticking = false;
+	var currentScrollY = latestKnownScrollY;
 	
-// }
-// function requestTick() {
-// 	if(!ticking) {
-// 		requestAnimationFrame(update);
-// 		ticking = true;
-// 	}
+}
+function requestTick() {
+	if(!ticking) {
+		requestAnimationFrame(update);
+		ticking = true;
+	}
 	
-// }
-// function onScroll() {
-// 	latestKnownScrollY = window.scrollY;
-// 	requestTick();
-// }
+}
+function onScroll() {
+	latestKnownScrollY = window.scrollY;
+	requestTick();
+}
 
-// window.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', onScroll);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
