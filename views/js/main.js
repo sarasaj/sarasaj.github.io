@@ -417,19 +417,18 @@ var resizePizzas = function(size) {
 	//determin dx is not usful so i delete it 
 	// Iterates through pizza elements on the page and changes their widths
   	//merge  determine dx switch part in change size 
-	var pizzaElement = document.getElementById("pizzaSize").innerHTML;
 	switch(size) {
 	case "1":
 	  newwidth = 25;
-	  pizzaElement = "Small";
+	  document.getElementById("pizzaSize").innerHTML = "Small";
 	  break;
 	case "2":
 	  newwidth = 33.33;
-	  pizzaElement = "Medium";
+	  document.getElementById("pizzaSize").innerHTML = "Medium";
 	  break;
 	case "3":
 	  newwidth = 50;
-	  pizzaElement = "Large";
+	  document.getElementById("pizzaSize").innerHTML = "Large";
 	  break;
 	default:
 	  console.log("bug in sizeSwitcher");
