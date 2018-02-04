@@ -36,6 +36,8 @@
 
     .mover {
       /*to make the painting and composite faster*/
+      transform: translateZ(0);
+      backface-visibility: hidden;
       will-change : transform;
       position: fixed;
       width: 256px;

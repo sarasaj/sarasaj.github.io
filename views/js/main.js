@@ -420,6 +420,7 @@ var resizePizzas = function(size) {
 	switch(size) {
 	case "1":
 	  newwidth = 25;
+	  //getElementById is faster than querySelector
 	  document.getElementById("pizzaSize").innerHTML = "Small";
 	  break;
 	case "2":
@@ -435,7 +436,8 @@ var resizePizzas = function(size) {
 	}
 
       //var pizzaContainer =  document.getElementsByClassName("randomPizzaContainer");
-      for (var i = 0; i < RandomPizzasContainers.length; i++) {
+      var arrayLength = RandomPizzasContainers.length; //better storing it in local variable
+      for (var i = 0; i < arrayLength ; i++) {
       	RandomPizzasContainers[i].style.width = newwidth + "%";
       }
 
@@ -490,7 +492,8 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
 	var scrollTop = latestKnownScrollY;
-  	for (var i = 0; i < items.length; i++) {
+	var itemsLength = items.length;
+  	for (var i = 0; i < itemsLength; i++) {
 	    var phase = Math.sin((scrollTop / 1250) + (i % 5));
 	    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   	}	
@@ -532,12 +535,18 @@ window.addEventListener('scroll', onScroll);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
+  var cols = 8,
+   s = 256,
+   noOfrows = ((window.screen.height) / s),
+   noOfpizzas = noOfrows * cols;
+
+   console.log("noOfpizzas:"+noOfpizzas);
+
   var movingpizza = document.getElementById("movingPizzas1");
   //minimize the number of pizzas created 
-  for (var i = 0; i < 100; i++) {
-    var elem = document.createElement('img');
+  for (var i = 0, elem; i < noOfpizzas; i++) {
+  	//declaring elem in the initlization of the loop
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
@@ -548,6 +557,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   items = document.getElementsByClassName('mover');
-  console.log("100 created");
   updatePositions();
 });

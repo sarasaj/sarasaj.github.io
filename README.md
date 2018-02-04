@@ -19,3 +19,6 @@ Optimizations made in pizza project:
 7. debouncing the scroll event useing requestAnimationFrame 
 8. storing elemnts and arrays or global varibales that are accessed many times. 
 9. denested functions inside resizePizzas and removed determine dx 
+10. storing any array length called in a loop in a local variable.
+11. using backface-visibility: hidden; , transform: translateZ(0); for faster css.
+12. calculating the number of random pizzas based on screen height.
